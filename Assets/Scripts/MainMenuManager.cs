@@ -1,18 +1,21 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class MainMenuManager : MonoBehaviour
 {
-    // Start is called before the first frame update
+    private Button PlayButton;
+    
     void Start()
     {
-        
+        PlayButton = GameObject.Find("PlayButton").GetComponent<Button>();
+        PlayButton.onClick.AddListener(PlayGameScene);
     }
 
-    // Update is called once per frame
-    void Update()
+    void PlayGameScene()
     {
-        
+        SceneManager.LoadScene("gameScene");
     }
 }
