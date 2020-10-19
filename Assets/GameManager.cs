@@ -25,10 +25,10 @@ public class GameManager : MonoBehaviour
 
     void DecrementTime()
     {
-        if (time == 0)
-            return;
         time -= 1;
         Debug.Log(time);
         uiManager.UpdateTime(time);
+        if (time == 0)
+            CancelInvoke("DecrementTime");
     }
 }
