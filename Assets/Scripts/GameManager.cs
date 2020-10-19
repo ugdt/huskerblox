@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameManager : MonoBehaviour
+public class GameManager : SingletonClass<GameManager>
 {
+    public uint Time => time;
 
     [SerializeField]
     private uint time = 0;
@@ -27,7 +28,6 @@ public class GameManager : MonoBehaviour
     {
         time -= 1;
         Debug.Log(time);
-        uiManager.UpdateTime(time);
         if (time == 0)
             CancelInvoke("DecrementTime");
     }

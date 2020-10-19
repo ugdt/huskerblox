@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
-
     [SerializeField]
     private Text timeField = null;
 
@@ -16,7 +15,12 @@ public class UIManager : MonoBehaviour
             Debug.LogError("Time field is null!");
     }
 
-    public void UpdateTime(uint seconds)
+    private void Update()
+    {
+        UpdateTime(GameManager.Instance.Time);
+    }
+
+    private void UpdateTime(uint seconds)
     {
         timeField.text = $"Time: {seconds}";
     }
