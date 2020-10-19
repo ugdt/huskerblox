@@ -22,7 +22,8 @@ public class UIManager : MonoBehaviour
 
     private void UpdateTime(uint seconds)
     {
-        timeField.text = $"Time: {seconds}";
+        
+        timeField.text = $"{seconds / 60}:{seconds % 60}";
     }
 
 
